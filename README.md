@@ -1,6 +1,6 @@
 # Comprobación de plugins de Wordpress en el NIST
 
-Esta herramienta permita hacer un anális de plugins en un sitio web. Además, comprueba usando [la API del NIST](https://nvd.nist.gov/developers/vulnerabilities) los últimos CVE asociados a estos plugins.
+Esta herramienta permite hacer un anális de plugins en un sitio web. Además, comprueba usando [la API del NIST](https://nvd.nist.gov/developers/vulnerabilities) los últimos CVE asociados a estos plugins.
 
 ## Uso
 
