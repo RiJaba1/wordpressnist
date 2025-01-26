@@ -21,3 +21,12 @@ options:
 ## Diccionarios
 
 Recomiendo el diccionario "wordpress-popular-plugins.txt" de hypn. Enlace: https://github.com/hypn/custom-wordlists/blob/master/wordpress-popular-plugins.txt
+
+## Licencia
+
+Este script está licenciado bajo la Licencia Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional. Para ver una copia de esta licencia, visita https://creativecommons.org/licenses/by-nc-sa/4.0/.
+
+## Agradecimientos
+
+Gracias a ChatGPT por ayudarme a hacer la barra de progreso (😀)
+Para cualquier cosa me podéis contactar por rijaba1@protonmail.com. ¡Gracias!
