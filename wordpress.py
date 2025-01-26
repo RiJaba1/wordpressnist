@@ -16,7 +16,6 @@ import time
 
 # Argumentos del script
 parser = argparse.ArgumentParser()
-parser.add_argument("-v", "--version", help="Mostrar la versión del script.", action="version")
 parser.add_argument("-w", "--wordlist", help="Especificar el diccionario a usar.", action="store", required=True)
 parser.add_argument("-u", "--url", help="Especificar la URL del WordPress a escanear.", action="store", required=True)
 parser.add_argument("-o", "--export", help="Especificar el archivo a exportar con los resultados.", action="store", required=True)
