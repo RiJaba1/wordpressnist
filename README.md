@@ -28,7 +28,9 @@ Este script está licenciado bajo la Licencia Creative Commons Atribución-NoCom
 
 ## Agradecimientos
 
-Gracias a ChatGPT por ayudarme a hacer la barra de progreso (😀)
+Gracias a ChatGPT por ayudarme a hacer la barra de progreso (😀).
+
 Gracias a [ShellDredd](https://github.com/ShellDredd/) por arreglar el exportado del archivo en sistemas GNU/Linux.
+
 
 Para cualquier cosa me podéis contactar por rijaba1@protonmail.com. ¡Gracias!
