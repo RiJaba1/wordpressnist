@@ -81,7 +81,7 @@ def exportar_a_excel(vulnerabilities, archivo_excel):
     # Crear el DataFrame
     df = pd.DataFrame(filas)
     # Exportar a Excel
-    df.to_excel(archivo_excel, index=False, sheet_name='Vulnerabilidades')
+    df.to_csv(archivo_excel, index=False)
 
 # Llamar a la función para exportar los datos
 exportar_a_excel(vulnerabilities, args.export)
