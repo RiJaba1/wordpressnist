@@ -1,0 +1,9 @@
+wheel
+argparse
+requests
+regex
+nvdlib
+datetime
+pandas
+openpyxl
+tqdm
