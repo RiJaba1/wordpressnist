@@ -22,5 +22,7 @@ docker run \
  --name wpvulnapp \
  --mount type=bind,source="$(pwd)"/app,target=/usr/src/app \
  wordpressnist \
- -w diccionario.txt -u https://delicioushack.com -o salida.csv
+ -w diccionario.txt -u https://delicioushack.com
 ```
+
+* El resultado se exporta a un fichero CSV en la carpeta /app con el nombre del dominio y el timestamp de la ejecucion
