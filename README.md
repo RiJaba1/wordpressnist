@@ -32,5 +32,6 @@ Gracias a ChatGPT por ayudarme a hacer la barra de progreso (😀).
 
 Gracias a [ShellDredd](https://github.com/ShellDredd/) por arreglar el exportado del archivo en sistemas GNU/Linux.
 
+Gracias a [k4y53r](https://github.com/k4y53r) por _"dockerizar"_ la herramienta.
 
 Para cualquier cosa me podéis contactar por rijaba1@protonmail.com. ¡Gracias!
