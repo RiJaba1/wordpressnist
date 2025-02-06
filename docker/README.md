@@ -15,6 +15,7 @@ sed -i '51,$ d' app/diccionario.txt
 
 * Ejecutamos el container con los parametros necesarios
 
+```
 docker run \
  --rm \
  -it \
@@ -22,3 +23,4 @@ docker run \
  --mount type=bind,source="$(pwd)"/app,target=/usr/src/app \
  wordpressnist \
  -w diccionario.txt -u https://delicioushack.com -o salida.csv
+```
