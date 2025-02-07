@@ -37,7 +37,7 @@ except:
     sys.exit(1)
 
 # Mostrar información ingresada por el usuario
-print("Diccionario: " + args.wordlist)
+print("\nDiccionario: " + args.wordlist)
 print("URL: " + args.url)
 
 # Generación de endpoints
@@ -49,12 +49,18 @@ pattern = r"/([^/]+)/?$"
 
 # Comprobación de plugins existentes en la web
 print("\nEscaneando plugins en los endpoints...")
-for endpoint in tqdm(endpoints, desc="Comprobando plugins", unit="endpoint"):
-    r = requests.get(endpoint)
-    if r.status_code != 404:
-        match = re.search(pattern, endpoint)
-        if match:
-            plugins_validos.append(match.group(1))
+
+try:
+    for endpoint in tqdm(endpoints, desc="Comprobando plugins", unit="endpoint"):
+        r = requests.get(endpoint)
+        if r.status_code != 404:
+            match = re.search(pattern, endpoint)
+            if match:
+                plugins_validos.append(match.group(1))
+except:
+    print("\nERROR: No se han podido comprobar los plugins")
+    print("\nExiting...\n")
+    sys.exit(1)
 
 print("\nLista de plugins encontrados:", plugins_validos)
 
@@ -62,14 +68,19 @@ print("\nLista de plugins encontrados:", plugins_validos)
 print("\nBuscando vulnerabilidades para los plugins válidos en la API del NIST...")
 print("\t[?] Nota: cada petición se realiza con 6 segundos de margen para evitar el Rate Limit")
 vulnerabilities = {}
-for plugin_valido in tqdm(plugins_validos, desc="Buscando CVEs", unit="plugin"):
-    extraccion = nvdlib.searchCVE(keywordSearch=plugin_valido)
-    todas_extracciones = []
-    for eachCVE in extraccion:
-        datito = (eachCVE.id, eachCVE.score[1] if eachCVE.score else None)
-        todas_extracciones.append(datito)
-    vulnerabilities[plugin_valido] = todas_extracciones
-    time.sleep(6)
+try:
+    for plugin_valido in tqdm(plugins_validos, desc="Buscando CVEs", unit="plugin"):
+        extraccion = nvdlib.searchCVE(keywordSearch=plugin_valido)
+        todas_extracciones = []
+        for eachCVE in extraccion:
+            datito = (eachCVE.id, eachCVE.score[1] if eachCVE.score else None)
+            todas_extracciones.append(datito)
+        vulnerabilities[plugin_valido] = todas_extracciones
+        time.sleep(6)
+except:
+    print("\nERROR: No se ha podido conectar con NIST para extraer CVEs")
+    print("\nExiting...\n")
+    sys.exit(1)
 
 # Exportar el diccionario con las vulnerabilidades a un archivo Excel
 def exportar_a_excel(vulnerabilities, archivo_excel):
@@ -84,7 +95,6 @@ def exportar_a_excel(vulnerabilities, archivo_excel):
     df.to_csv(archivo_excel, index=False)
 
 # Llamar a la función para exportar los datos
-#exportar_a_excel(vulnerabilities, args.export)
 exportar_a_excel(vulnerabilities, report)
 
 print("\nEl escaneo ha terminado. Los datos están disponibles en el archivo:", report)
